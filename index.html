@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список покупок</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+</head>
+<body>
+    <div class="app" id="app">
+        <h1>Мой список покупок 🛒</h1>
+        <div class="input-container">
+            <input type="text" id="productInput" placeholder="Введите продукт...">
+            <button id="addButton">Добавить</button>
+        </div>
+        <ul id="productList"></ul>
+        <div class="stats">
+            <p>Выполнено: <span id="completedCount">0</span></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
