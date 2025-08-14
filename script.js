@@ -1,17 +1,21 @@
 // Главная функция запуска
 async function initializeApp() {
-    // 1. Пытаемся инициализировать VK Bridge
+    // 1. Пытаемся инициализировать VK Bridge только если он доступен
     try {
-        await bridge.send('VKWebAppInit');
-        console.log('VK Bridge initialized');
-        
-        // Настройки интерфейса VK
-        await bridge.send('VKWebAppSetViewSettings', {
-            status_bar_style: 'dark',
-            action_bar_color: '#5181b8'
-        });
+        if (typeof bridge !== 'undefined') {
+            await bridge.send('VKWebAppInit');
+            console.log('VK Bridge initialized');
+            
+            // Настройки интерфейса VK
+            await bridge.send('VKWebAppSetViewSettings', {
+                status_bar_style: 'dark',
+                action_bar_color: '#5181b8'
+            });
+        } else {
+            console.log('Bridge not available - running in standalone mode');
+        }
     } catch (e) {
-        console.log('Running in standalone mode', e);
+        console.log('Error initializing VK Bridge', e);
     }
 
     // 2. Запускаем основное приложение
