@@ -87,22 +87,3 @@ li button {
     color: #656565;
 }
 
-#app {
-    display: none; 
-}
-
-.empty-message {
-    color: #999;
-    text-align: center;
-    padding: 20px;
-}
-
-.item-actions {
-    display: flex;
-    gap: 8px;
-}
-
-.completeButton:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
